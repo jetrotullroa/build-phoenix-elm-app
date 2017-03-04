@@ -19,6 +19,13 @@ defmodule Elmnix.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", Elmnix do
+    pipe_through :api
+
+
+    resources "/contacts", ContactController, only: [:index]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Elmnix do
   #   pipe_through :api

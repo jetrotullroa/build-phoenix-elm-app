@@ -1,6 +1,8 @@
 defmodule Elmnix.Contact do
   use Elmnix.Web, :model
 
+  @derive {Poison.Encoder, except: [:__meta__, :inserted_at, :updated_at]}
+
   schema "contacts" do
     field :first_name, :string
     field :last_name, :string
