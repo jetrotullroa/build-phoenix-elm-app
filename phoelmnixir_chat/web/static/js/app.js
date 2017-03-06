@@ -1,3 +1,5 @@
+import Elm from './main'
+
 // Brunch automatically concatenates all files in your
 // watched paths. Those paths can be configured at
 // config.paths.watched in "brunch-config.js".
@@ -19,3 +21,10 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+
+
+const elmDiv = document.querySelector('#elm-target');
+if (elmDiv) {
+  Elm.Main.embed(elmDiv)
+}
