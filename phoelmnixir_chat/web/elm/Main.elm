@@ -19,4 +19,10 @@ main =
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+    let
+        model =
+            { messageInProgress = ""
+            , messages = [ "Test message", "Second Message" ]
+            }
+    in
+        ( model, Cmd.none )

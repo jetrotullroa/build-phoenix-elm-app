@@ -7,11 +7,20 @@ import Messages exposing (..)
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ ul []
-            [ li [] [] ]
-        , form []
-            [ input [] []
-            , button [] [ text "Submit" ]
+    let
+        drawMessages messages =
+            messages |> List.map drawMessage
+    in
+        div []
+            [ ul []
+                (model.messages |> drawMessages)
+            , form []
+                [ input [] []
+                , button [] [ text "Submit" ]
+                ]
             ]
-        ]
+
+
+drawMessage : String -> Html Msg
+drawMessage message =
+    li [] [ text message ]

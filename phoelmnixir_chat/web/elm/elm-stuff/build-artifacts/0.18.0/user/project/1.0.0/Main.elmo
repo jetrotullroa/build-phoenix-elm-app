@@ -1,8 +1,18 @@
-var _user$project$Main$init = {
-	ctor: '_Tuple2',
-	_0: {},
-	_1: _elm_lang$core$Platform_Cmd$none
-};
+var _user$project$Main$init = function () {
+	var model = {
+		messageInProgress: '',
+		messages: {
+			ctor: '::',
+			_0: 'Test message',
+			_1: {
+				ctor: '::',
+				_0: 'Second Message',
+				_1: {ctor: '[]'}
+			}
+		}
+	};
+	return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+}();
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{
 		init: _user$project$Main$init,

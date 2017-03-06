@@ -1,4 +1,17 @@
+var _user$project$View$drawMessage = function (message) {
+	return A2(
+		_elm_lang$html$Html$li,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(message),
+			_1: {ctor: '[]'}
+		});
+};
 var _user$project$View$view = function (model) {
+	var drawMessages = function (messages) {
+		return A2(_elm_lang$core$List$map, _user$project$View$drawMessage, messages);
+	};
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
@@ -7,14 +20,7 @@ var _user$project$View$view = function (model) {
 			_0: A2(
 				_elm_lang$html$Html$ul,
 				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$li,
-						{ctor: '[]'},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}),
+				drawMessages(model.messages)),
 			_1: {
 				ctor: '::',
 				_0: A2(
