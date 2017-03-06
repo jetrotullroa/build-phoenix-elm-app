@@ -1,7 +1,7 @@
 module Decoders exposing (..)
 
 import Json.Decode as JD exposing (..)
-import Json.Decode.Extra as JDE exposing ((|:))
+import Json.Decode.Extra exposing ((|:))
 import Model exposing (..)
 
 
