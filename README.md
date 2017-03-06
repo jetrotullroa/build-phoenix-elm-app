@@ -1,3 +1,3 @@
-# Elmnix
+# PHOELMNIXIR
 
-* Learn Elm and Phoenix
+#### Collection of Toy Apps to practice Elixir, Phoenix and Elm
