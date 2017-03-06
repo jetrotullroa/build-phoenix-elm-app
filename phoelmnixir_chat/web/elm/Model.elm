@@ -1,7 +1,11 @@
 module Model exposing (..)
 
+import Phoenix.Socket
+import Messages exposing (..)
+
 
 type alias Model =
-    { messageInProgress : String
+    { phxSocket : Phoenix.Socket.Socket Msg
+    , messageInProgress : String
     , messages : List String
     }
