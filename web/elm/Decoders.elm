@@ -15,7 +15,7 @@ contactListDecoder : JD.Decoder ContactList
 contactListDecoder =
     succeed
         ContactList
-        |: (field "entries" (list contactListDecoder))
+        |: (field "entries" (list contactDecoder))
         |: (field "page_number" int)
         |: (field "total_entries" int)
         |: (field "total_pages" int)
@@ -30,6 +30,7 @@ contactDecoder =
         |: (field "last_name" string)
         |: (field "gender" int)
         |: (field "birth_date" string)
+        |: (field "phone_number" string)
         |: (field "location" string)
         |: (field "email" string)
         |: (field "headline" string)

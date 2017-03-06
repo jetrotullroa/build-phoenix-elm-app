@@ -1,0 +1,81 @@
+var _user$project$ContactList_View$contactList = function (model) {
+	if (_elm_lang$core$Native_Utils.cmp(model.contactList.total_entries, 0) > 0) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('cards-wrapper'),
+				_1: {ctor: '[]'}
+			},
+			A2(_elm_lang$core$List$map, _user$project$Contact_View$contactView, model.contactList.entries));
+	} else {
+		var classes = _elm_lang$html$Html_Attributes$classList(
+			{
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'warning', _1: true},
+				_1: {ctor: '[]'}
+			});
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: classes,
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$span,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('fa-stack'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$i,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('fa fa-meh-o fa-stack-2x'),
+								_1: {ctor: '[]'}
+							},
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$h4,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('No contacts found..'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			});
+	}
+};
+var _user$project$ContactList_View$indexView = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('home_index'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _user$project$ContactList_View$contactList(model),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};

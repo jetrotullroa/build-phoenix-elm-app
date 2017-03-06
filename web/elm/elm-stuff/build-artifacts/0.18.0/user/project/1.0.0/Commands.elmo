@@ -1,0 +1,5 @@
+var _user$project$Commands$fetch = function () {
+	var apiUrl = 'api/contacts';
+	var request = A2(_elm_lang$http$Http$get, apiUrl, _user$project$Decoders$contactListDecoder);
+	return A2(_elm_lang$http$Http$send, _user$project$Messages$FetchResult, request);
+}();

@@ -1,6 +1,6 @@
 module Commands exposing (..)
 
-import Decoders exposing (..)
+import Decoders exposing (contactListDecoder)
 import Http
 import Messages exposing (..)
 

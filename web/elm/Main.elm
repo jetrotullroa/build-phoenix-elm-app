@@ -13,11 +13,11 @@ import View exposing (..)
 
 main : Program Never Model Msg
 main =
-    Html.Program
+    Html.program
         { init = init
         , view = view
         , update = update
-        , subscription = always <| Sub.none
+        , subscriptions = always <| Sub.none
         }
 
 

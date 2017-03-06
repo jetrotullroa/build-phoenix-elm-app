@@ -3,8 +3,8 @@ module View exposing (..)
 import ContactList.View exposing (indexView)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Messages
-import Model
+import Messages exposing (..)
+import Model exposing (..)
 
 
 view : Model -> Html Msg
