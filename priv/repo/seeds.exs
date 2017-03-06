@@ -61,5 +61,5 @@ for index <- 1..100 do
 end
 
 # add manually
-# contact = %Elmnix.Contact{first_name: "Grim", last_name: "Reaper", gender: 1, birth_date "29 February 1980", location: "Volta, Mars", phone_number: "80800808", email: "grimreaper@killyah.dead", picture: "http://rs141.pbsrc.com/albums/r73/salem21_2006/achmed.jpg~c200", headline "I Keel Yu"}
+# contact = %Elmnix.Contact{first_name: "Grim", last_name: "Reaper", birth_date: date, gender: 1, location: "Volta, Mars", phone_number: "80800808", email: "grimreaper@killyah.dead", picture: "http://rs141.pbsrc.com/albums/r73/salem21_2006/achmed.jpg~c200", headline: "I Keel Yu"}
 # Elmnix.Repo.insert contact

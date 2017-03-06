@@ -1,6 +1,3 @@
---- web/elm/Main.elm
-
-
 module Main exposing (..)
 
 import Html exposing (Html, text)

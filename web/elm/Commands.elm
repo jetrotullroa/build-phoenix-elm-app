@@ -9,7 +9,7 @@ fetch : Cmd Msg
 fetch =
     let
         apiUrl =
-            "api/contacts"
+            "/api/contacts"
 
         request =
             Http.get apiUrl contactListDecoder
