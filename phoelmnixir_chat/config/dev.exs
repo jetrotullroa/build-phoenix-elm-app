@@ -36,8 +36,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :phoelmnixir_chat, PhoelmnixirChat.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "jetrotullroa",
+  password: "",
   database: "phoelmnixir_chat_dev",
   hostname: "localhost",
   pool_size: 10

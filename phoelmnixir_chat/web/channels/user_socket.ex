@@ -1,6 +1,8 @@
 defmodule PhoelmnixirChat.UserSocket do
   use Phoenix.Socket
 
+  channel "room:lobby", PhoelmnixirChat.RoomChannel
+
   ## Channels
   # channel "room:*", PhoelmnixirChat.RoomChannel
 
