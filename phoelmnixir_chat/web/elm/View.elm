@@ -1,6 +1,8 @@
 module View exposing (..)
 
 import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Model exposing (..)
 import Messages exposing (..)
 
@@ -14,8 +16,12 @@ view model =
         div []
             [ ul []
                 (model.messages |> drawMessages)
-            , form []
-                [ input [] []
+            , Html.form []
+                [ input
+                    [ onInput GetMessage
+                    , placeholder "Your message here ..."
+                    ]
+                    []
                 , button [] [ text "Submit" ]
                 ]
             ]

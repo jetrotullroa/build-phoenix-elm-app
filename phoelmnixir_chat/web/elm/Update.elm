@@ -11,6 +11,9 @@ update msg model =
         Something ->
             ( model, Cmd.none )
 
+        GetMessage message ->
+            ( { model | messageInProgress = message }, Cmd.none )
+
         PhoenixMsg msg ->
             let
                 ( phxSocket, phxCmd ) =

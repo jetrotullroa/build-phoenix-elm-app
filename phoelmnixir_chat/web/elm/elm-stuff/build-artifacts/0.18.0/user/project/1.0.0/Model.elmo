@@ -1,4 +1,4 @@
-var _user$project$Model$Model = F2(
-	function (a, b) {
-		return {messageInProgress: a, messages: b};
+var _user$project$Model$Model = F3(
+	function (a, b, c) {
+		return {phxSocket: a, messageInProgress: b, messages: c};
 	});

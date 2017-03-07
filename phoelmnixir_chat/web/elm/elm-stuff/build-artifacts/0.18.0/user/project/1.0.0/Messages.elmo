@@ -1,1 +1,7 @@
+var _user$project$Messages$PhoenixMsg = function (a) {
+	return {ctor: 'PhoenixMsg', _0: a};
+};
+var _user$project$Messages$GetMessage = function (a) {
+	return {ctor: 'GetMessage', _0: a};
+};
 var _user$project$Messages$Something = {ctor: 'Something'};

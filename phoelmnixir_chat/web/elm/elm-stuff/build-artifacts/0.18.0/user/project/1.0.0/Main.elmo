@@ -1,5 +1,7 @@
 var _user$project$Main$init = function () {
+	var wsUrl = 'ws://localhost:4000/socket/websocket';
 	var model = {
+		phxSocket: _fbonetti$elm_phoenix_socket$Phoenix_Socket$init(wsUrl),
 		messageInProgress: '',
 		messages: {
 			ctor: '::',
