@@ -6,8 +6,6 @@ import Model exposing (..)
 import Messages exposing (..)
 import Update exposing (..)
 import Phoenix.Socket
-import Phoenix.Channel
-import Phoenix.Push
 
 
 main : Program Never Model Msg
@@ -26,10 +24,15 @@ init =
         wsUrl =
             "ws://localhost:4000/socket/websocket"
 
+        initSocket =
+            Phoenix.Socket.init wsUrl
+                |> Phoenix.Socket.withDebug
+                |> Phoenix.Socket.on "shout" "room:lobby" ReceiveMessage
+
         model =
-            { phxSocket = Phoenix.Socket.init wsUrl
+            { phxSocket = initSocket
             , messageInProgress = ""
-            , messages = [ "Test message", "Second Message" ]
+            , messages = []
             }
     in
         ( model, Cmd.none )

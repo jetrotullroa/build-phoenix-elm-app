@@ -25,7 +25,11 @@ var _user$project$View$view = function (model) {
 				ctor: '::',
 				_0: A2(
 					_elm_lang$html$Html$form,
-					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onSubmit(_user$project$Messages$SendMessage),
+						_1: {ctor: '[]'}
+					},
 					{
 						ctor: '::',
 						_0: A2(

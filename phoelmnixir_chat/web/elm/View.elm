@@ -16,7 +16,7 @@ view model =
         div []
             [ ul []
                 (model.messages |> drawMessages)
-            , Html.form []
+            , Html.form [ onSubmit SendMessage ]
                 [ input
                     [ onInput GetMessage
                     , placeholder "Your message here ..."

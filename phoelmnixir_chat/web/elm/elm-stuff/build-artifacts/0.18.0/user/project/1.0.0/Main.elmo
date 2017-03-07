@@ -1,17 +1,16 @@
 var _user$project$Main$init = function () {
 	var wsUrl = 'ws://localhost:4000/socket/websocket';
+	var initSocket = A4(
+		_fbonetti$elm_phoenix_socket$Phoenix_Socket$on,
+		'shout',
+		'room:lobby',
+		_user$project$Messages$ReceiveMessage,
+		_fbonetti$elm_phoenix_socket$Phoenix_Socket$withDebug(
+			_fbonetti$elm_phoenix_socket$Phoenix_Socket$init(wsUrl)));
 	var model = {
-		phxSocket: _fbonetti$elm_phoenix_socket$Phoenix_Socket$init(wsUrl),
+		phxSocket: initSocket,
 		messageInProgress: '',
-		messages: {
-			ctor: '::',
-			_0: 'Test message',
-			_1: {
-				ctor: '::',
-				_0: 'Second Message',
-				_1: {ctor: '[]'}
-			}
-		}
+		messages: {ctor: '[]'}
 	};
 	return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 }();

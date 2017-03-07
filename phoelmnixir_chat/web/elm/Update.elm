@@ -3,7 +3,9 @@ module Update exposing (..)
 import Messages exposing (..)
 import Model exposing (..)
 import Phoenix.Socket
+import Phoenix.Push
 import Json.Encode as JE exposing (..)
+import Json.Decode as JD exposing (..)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -20,6 +22,15 @@ update msg model =
                 payload =
                     JE.object
                         [ ( "message", JE.string model.messageInProgress ) ]
+
+                phxPush =
+                    Phoenix.Push.init "shout" "room:lobby"
+                        |> Phoenix.Push.withPayload payload
+                        |> Phoenix.Push.onOk ReceiveMessage
+                        |> Phoenix.Push.onError HandleSendError
+
+                ( phxSocket, phxCmd ) =
+                    Phoenix.Socket.push phxPush model.phxSocket
             in
                 ( model, Cmd.none )
 
@@ -32,10 +43,19 @@ update msg model =
                 , Cmd.map PhoenixMsg phxCmd
                 )
 
-        ReceiveMessage message ->
-            ( model, Cmd.none )
+        ReceiveMessage raw ->
+            let
+                someMessage =
+                    JD.decodeString "messages" raw
+            in
+                case someMessage of
+                    Ok message ->
+                        ( { model | messages = message :: model.messages }, Cmd.none )
 
-        HandleSendError message ->
+                    Err error ->
+                        ( model, Cmd.none )
+
+        HandleSendError _ ->
             let
                 message =
                     "Failed to send Message"
