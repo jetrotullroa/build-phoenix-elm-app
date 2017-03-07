@@ -3,6 +3,7 @@ module Update exposing (..)
 import Messages exposing (..)
 import Model exposing (..)
 import Phoenix.Socket
+import Json.Encode as JE exposing (..)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -14,6 +15,14 @@ update msg model =
         GetMessage message ->
             ( { model | messageInProgress = message }, Cmd.none )
 
+        SendMessage ->
+            let
+                payload =
+                    JE.object
+                        [ ( "message", JE.string model.messageInProgress ) ]
+            in
+                ( model, Cmd.none )
+
         PhoenixMsg msg ->
             let
                 ( phxSocket, phxCmd ) =
@@ -22,3 +31,13 @@ update msg model =
                 ( { model | phxSocket = phxSocket }
                 , Cmd.map PhoenixMsg phxCmd
                 )
+
+        ReceiveMessage message ->
+            ( model, Cmd.none )
+
+        HandleSendError message ->
+            let
+                message =
+                    "Failed to send Message"
+            in
+                ( { model | messages = message :: model.messages }, Cmd.none )

@@ -9810,9 +9810,16 @@ var _fbonetti$elm_phoenix_socket$Phoenix_Socket$listen = F2(
 			});
 	});
 
+var _user$project$Messages$HandleSendError = function (a) {
+	return {ctor: 'HandleSendError', _0: a};
+};
+var _user$project$Messages$ReceiveMessage = function (a) {
+	return {ctor: 'ReceiveMessage', _0: a};
+};
 var _user$project$Messages$PhoenixMsg = function (a) {
 	return {ctor: 'PhoenixMsg', _0: a};
 };
+var _user$project$Messages$SendMessage = {ctor: 'SendMessage'};
 var _user$project$Messages$GetMessage = function (a) {
 	return {ctor: 'GetMessage', _0: a};
 };
@@ -9897,7 +9904,19 @@ var _user$project$Update$update = F2(
 						{messageInProgress: _p0._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			default:
+			case 'SendMessage':
+				var payload = _elm_lang$core$Json_Encode$object(
+					{
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'message',
+							_1: _elm_lang$core$Json_Encode$string(model.messageInProgress)
+						},
+						_1: {ctor: '[]'}
+					});
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'PhoenixMsg':
 				var _p1 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$update, _p0._0, model.phxSocket);
 				var phxSocket = _p1._0;
 				var phxCmd = _p1._1;
@@ -9907,6 +9926,19 @@ var _user$project$Update$update = F2(
 						model,
 						{phxSocket: phxSocket}),
 					_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Messages$PhoenixMsg, phxCmd)
+				};
+			case 'ReceiveMessage':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				var message = 'Failed to send Message';
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							messages: {ctor: '::', _0: message, _1: model.messages}
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
 				};
 		}
 	});

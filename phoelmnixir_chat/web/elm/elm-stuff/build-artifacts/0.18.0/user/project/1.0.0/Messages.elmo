@@ -1,6 +1,13 @@
+var _user$project$Messages$HandleSendError = function (a) {
+	return {ctor: 'HandleSendError', _0: a};
+};
+var _user$project$Messages$ReceiveMessage = function (a) {
+	return {ctor: 'ReceiveMessage', _0: a};
+};
 var _user$project$Messages$PhoenixMsg = function (a) {
 	return {ctor: 'PhoenixMsg', _0: a};
 };
+var _user$project$Messages$SendMessage = {ctor: 'SendMessage'};
 var _user$project$Messages$GetMessage = function (a) {
 	return {ctor: 'GetMessage', _0: a};
 };
